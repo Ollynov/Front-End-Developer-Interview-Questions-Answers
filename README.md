@@ -198,7 +198,9 @@ Even before you hit 'Enter' on your keyboard, there is a lot of code being run b
 
 As soon as you hit enter, whatever you had in the url bar is parsed- there is a protocol (http or https), and there is a domain. If there is not a valid domain (for example https://github.com) provided, then it will treat whatever you typed as web search term, and redirect the user to google search results. If a protocol is not provided, but the domain is legit (www.github.com or github.com), then the browser will check an HSTS list (HTTP Strict Transport Security), which is essentially a list of websites that have opted to only be communicated with via HTTPS. Otherwise the browser will assume HTTP. 
 
-The next step is DNS lookup. A domain is actually in number and decimal format, such as 192.30.253.116 for example. First the browser checks the cache, and then checks a local "hosts" file whose location on the computer varies by computer and operating system. Only if the domain cannot be "resolved" in this way, will the browser make a request to a DNS server. This lookup should be very fast, as DNS servers essentially have one purpose, and are optimized for this quick retrieval (similar in format to a hashing function). 
+The next step is DNS lookup. A domain is actually in number and decimal format, such as 192.30.253.116 for example. First the browser checks the cache, and then checks a local "hosts" file whose location on the computer varies by computer and operating system. Only if the domain cannot be "resolved" in this way, will the browser make a request to a DNS server. This lookup should be very fast, as DNS servers essentially have one purpose, and are optimized for this quick retrieval (similar in structure to a hashing function). 
+
+
 
 
 
