@@ -156,8 +156,22 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 #### Testing Questions:
 
 * What are some advantages/disadvantages to testing your code?
+
+Of course writing tests takes time. In the case that there is an important deadline centered around a client request, a company may choose to delay writing tests in order to meet that deadline. 
+
+However, the whole point of functional/integration tests is to save you and your organization headache in the future by finding bugs early on. If the user sign up page breaks right when you happen to push an improvement to the photo uploader, then it is almost certain that the new photo uploader is causing the break. On the other hand, if the sign up bug is not discovered until a week later after a customer sends a complaint email, then it can be from the photo uploader, or from any of the other 10 pushes that came in the last week. 
+
+
+
 * What tools would you use to test your code's functionality?
 * What is the difference between a unit test and a functional/integration test?
+
+A unit test is concerned with testing if a specific encapsulated portion of code produces the desired result. This 'encapsulated portion of code' is usually a single function or algorithm. A solid unit test will also test for edge cases. 
+
+On the other hand, a functional/integration test covers a much larger portion of your application, and the intent is to test whether any new code that has been introduced has broken anything. Ideally, in a production level application, you would want to have 100% code coverage, meaning that all corners of the app are being tested any time new code is pushed. 
+
+
+
 * What is the purpose of a code style linting tool?
 
 A linting tool is typically an add-on to your code editor, that keeps the developer 'in check' with their code style by highlighting or giving some sort of indication in your code editor that whatever code you just wrote does not follow certain guidelines. Even if your code technically has proper syntax, it is also important for it to be standard and legible for other colleagues, and a linting tool helps with that. Eslint is what I personally use. 
