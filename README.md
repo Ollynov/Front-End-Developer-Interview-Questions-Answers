@@ -196,6 +196,8 @@ The next step is DNS lookup. A domain is actually in number and decimal format, 
   * Transfer-Encoding
   * ETag
   * X-Frame-Options
+  
+  
 * What are HTTP methods? List all HTTP methods that you know, and explain them.
 
 HTTP stands for Hypertext Transfer Protocol, it is the primary format by which the client and server communicate. The 'type' of HTTP request that is sent out from the client to the server indicates what sort of communication is in place. The two most common HTTP methods are a 'GET' and a 'POST'; 'GET' request is primarily for retreiving some sort of data from a resource, while a 'POST' is primarily for sending over some sort of data. For example, a 'GET' request is the most standard for retreiving the homepage from a server when a user lands on a website (as the verb 'get' indicates, you are getting the initial homepage served to you). While a 'POST' request will be more standard for when a user clicks the submit button after leaving a comment on an article. However, the type of request that is sent out is not just for convention, but also has subtle differences: 
@@ -212,6 +214,7 @@ OPTIONS - These are sent out automatically by the browser to a server that there
 DELETE - Whenever the intention is to delete a certain resource. An example would be if a user wishes to permanently delete their user data from a website.
 HEAD - A request method that is exactly the same as a GET, but only receives the HTTP Headers in the response, and not the body. 
 PUT - A PUT request is very similar to a POST; in fact, it can be seen as a more specific type of POST request (both send over data to the server). A POST request is more general in the sense that the URI in the request can indeed be a data-accepting process, but can also be a gateway to another protocol, or have some sort of other action that is taken. On the other hand, a PUT request must be accepted by the server at that exact URI; the only other option is to send a 301 'Moved Permanently' response, at which point the user may choose to redirect the request. An example of a PUT request would be uploading a file to a specific uri. 
+CONNECT - Converts the request connection to a transparent TCP/IP tunnel (not used so often). 
 
 
 
@@ -293,7 +296,9 @@ I was under the impression that occasionally it may print "one" "two" "three", s
 
 #### Contributors:
 
-Aljosha Novakovic @ollynov
+Questions answered by Aljosha Novakovic @ollynov
+
+Please feel free to contribute edits or to improve any of the answers. 
 
 This document started in 2009 as a collaboration of [@paul_irish](https://twitter.com/paul_irish) [@bentruyman](https://twitter.com/bentruyman) [@cowboy](https://twitter.com/cowboy) [@ajpiano](https://twitter.com/ajpiano)  [@SlexAxton](https://twitter.com/slexaxton) [@boazsender](https://twitter.com/boazsender) [@miketaylr](https://twitter.com/miketaylr) [@vladikoff](https://twitter.com/vladikoff) [@gf3](https://twitter.com/gf3) [@jon_neal](https://twitter.com/jon_neal) [@sambreed](https://twitter.com/sambreed) and [@iansym](https://twitter.com/iansym).
 
