@@ -160,6 +160,8 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 * What is the difference between a unit test and a functional/integration test?
 * What is the purpose of a code style linting tool?
 
+A linting tool is typically an add-on to your code editor, that keeps the developer 'in check' with their code style by highlighting or giving some sort of indication in your code editor that whatever code you just wrote does not follow certain guidelines. Even if your code technically has proper syntax, it is also important for it to be standard and legible for other colleagues, and a linting tool helps with that. Eslint is what I personally use. 
+
 #### Performance Questions:
 
 * What tools would you use to find a performance bug in your code?
@@ -196,6 +198,7 @@ The next step is DNS lookup. A domain is actually in number and decimal format, 
   * Transfer-Encoding
   * ETag
   * X-Frame-Options
+  
   
   
 * What are HTTP methods? List all HTTP methods that you know, and explain them.
