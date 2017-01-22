@@ -207,6 +207,12 @@ The next step is DNS lookup. A domain is actually in number and decimal format, 
 
 
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
+The most traditional and common form of communication between a client and a server is through a series of requests from the client and responses from the server using HTTP, which has become the standard. Websockets are revolutionary in that they allow for the server to send unsolicited information directly to the client. It is important to note that in websocket communication, the client can still communicate/send real-time messages to the server. Browsers first introduced support for websocket in 2010. The Websocket communications protocol is completely separate from HTTP, except for the initial 'handshake' that establishes the websocket connection between client and server in the first place. The handshake HTTP request must include an 'Upgrade: websocket' header. 
+
+HTML5 SSE (Server-sent events), are a similar form of communication, in the sense that the client can send unsolicited real-time messages to the client. However, it is not a two-way flow of communication, so the client cannot send real-time messages to the server like in Websockets. Another key difference is that with SSE the client cannot connect to a server on another domain. 
+
+Long-Polling is similar to the standard form of HTTP communication between client and server, but in the case that it receives a request from the client and has no response data available, it will not send back an empty response, but rather, hold onto that request until some data is available. As soon as the client receives a response, it will send out another request to the server, so the server will always have a pending request to respond to. 
+
 * Explain the following request and response headers:
   * Diff. between Expires, Date, Age and If-Modified-...
   * Do Not Track
