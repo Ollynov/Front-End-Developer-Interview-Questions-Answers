@@ -198,9 +198,9 @@ Even before you hit 'Enter' on your keyboard, there is a lot of code being run b
 
 As soon as you hit enter, whatever you had in the url bar is parsed- there is a protocol (http or https), and there is a domain. If there is not a valid domain (for example https://github.com) provided, then it will treat whatever you typed as web search term, and redirect the user to google search results. If a protocol is not provided, but the domain is legit (www.github.com or github.com), then the browser will check an HSTS list (HTTP Strict Transport Security), which is essentially a list of websites that have opted to only be communicated with via HTTPS. Otherwise the browser will assume HTTP. 
 
-The next step is DNS lookup. A domain is actually in number and decimal format, such as 192.30.253.116 for example. First the browser checks the cache, and then checks a local "hosts" file whose location on the computer varies by computer and operating system. Only if the domain cannot be "resolved" in this way, will the browser make a request to a DNS server. This lookup should be very fast, as DNS servers essentially have one purpose, and are optimized for this quick retrieval (similar in structure to a hashing function). 
+The next step is DNS lookup. A domain name is actually the more 'human friendly' way (www.github.com) to mask an ip address that is in decimal format, such as 192.30.253.113. First the browser checks the cache, and then checks a local "hosts" file whose location on the computer varies by computer and operating system. Only if the domain cannot be "resolved" in this way, will the browser make a request to a DNS server. This lookup should be very fast, as DNS servers essentially have one purpose, and are optimized for this quick retrieval (similar in structure to a hashing function). 
 
-
+Once the IP address has been optained, the browser takes the IP and the Port number (the HTTP protocol defaults to port 80, and HTTPS to port 443), and requests a TCP socket stream. 
 
 
 
@@ -215,11 +215,24 @@ Long-Polling is similar to the standard form of HTTP communication between clien
 
 * Explain the following request and response headers:
   * Diff. between Expires, Date, Age and If-Modified-...
-  * Do Not Track
-  * Cache-Control
-  * Transfer-Encoding
-  * ETag
-  * X-Frame-Options
+  
+Expires and Cache-Control: max-age= are both headers that dictate when a cached item will expire. However, the Expires merely gives the date and time after which the response is considered 'stale.' However, the original resource that was sent will still exhist and will not be changed after the expiration date. The Cache-Control: max-age header indicates the max age that the client is willing to accept of an incoming response (the only exception is if there is _also_ a max-stale header present). 
+
+Date indicates the date at which the message was created. Clients should only send a Date header in messages that include a significant body, as in the case of the PUT and POST requests, and even then it is optional.
+
+The If-Modified-Since header will only return a response IF the resource has been modified since the indicated date. If there has been no recent modification since the date, then the resource is considered stale, and a 304 (not modified) response will be returned without any message-body.
+
+Here is the proper formatting for each header: 
+- Expires: Thu, 01 Dec 1994 16:00:00 GMT
+- Cache-Control: max-age= 3360 
+- Date: Tue, 15 Nov 1994 08:12:31 GMT
+- If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+
+ * Do Not Track
+ * Cache-Control
+ * Transfer-Encoding
+ * ETag
+ * X-Frame-Options
   
   
   
