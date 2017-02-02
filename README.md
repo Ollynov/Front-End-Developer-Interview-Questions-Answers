@@ -271,6 +271,14 @@ An integer plus a string always results in a string. Even 10 + 'twenty' === '10t
 add(2, 5); // 7
 add(2)(5); // 7
 ```
+var add = (x, y = 0) => {
+  let next = x + y;
+  return (g = 0) => {
+    return g + next;
+  };
+};
+
+This is basic currying in Javascript. Both add(2, 5) and add(2)(5) will return 7. Note that default parameters are much smoother and easier to define with ES6 than with ES5.
 
 *Question: What value is returned from the following statement?*
 ```javascript
