@@ -153,6 +153,34 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
   * What is the difference between call stack and task queue?
 * Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
+The first is a named function. The second is a variable declaration (the variable happens to hold a function). 
+Imagine we have the following code: 
+console.log('noo is ', noo);
+console.log('foo is ', foo)
+console.log('joo is ', joo);
+function noo() {};
+var foo = function() {};
+
+The output will be the following:
+noo is  function noo() {}
+foo is  undefined
+console.log('joo is ', joo);
+                       ^
+ReferenceError: joo is not defined
+
+Because of javascript hoisting, named functions, as well as variable declarations, are brought to the top of the scope. In other words, you can imagine the code working like this behind the scenes:
+function noo() {};
+var foo;
+
+console.log('noo is ', noo);
+console.log('foo is ', foo)
+console.log('joo is ', joo);
+foo = function() {};
+
+Running the code will produce the same as the above code. The console logs that 'foo is undefined' because indeed it has reference to foo (remember it was hoisted to the top of the scope), but ONLY to the declaration of the variable foo, and not to the value. You can think of the machine saying "ok, sure I have allocated memory to a variable called foo. It still only has it's default value of undefined, but it's there... it exists.'
+
+
+
 #### Testing Questions:
 
 * What are some advantages/disadvantages to testing your code?
