@@ -185,8 +185,21 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 * What is event loop?
   * What is the difference between call stack and task queue?
   
-  
-  
+Javascript is a single threaded programming language, meaning that the javascript runtime only has one single call stack. This also implies that the javascript runtime can only run one unit of code at a time. It can only do one thing at a time. Everytime your code hits an invoked function, that function is added to the stack. "Blowing your call stack" is when you find yourself in an infinite loop of additions to the stack (function invocations). For example: 
+```
+function peh() {
+  return peh()
+}
+```
+will give you an error: 
+```
+RangeError: Maximum call stack size exceeded
+```
+Your browser was smart, and was able to recognize that far too many functions were being added to the callstacks (thousands), and that probably wasn't your intent, so time to find that bug. 
+
+So this begs the question- why is javascript non-blocking/Async in it's nature? As mentioned, indeed there is only one call stack; however, certain async functions operate through a WebAPI, such as the well known setTimeout function. This function is actually not part of the javascript V8 runtime, but is part of the browser. The browser makes a webAPI call, where there will be a clock tick for the amount of time you alloted in your setTimeout function. As soon as the that time is up, the webAPI will take the callback that you provided to the callback function, and push it into something called the task queue. 
+
+Now, the EVENT LOOP has a simple task- it watches the call stack and runs the next function, or if the call stack is empty, it will go down and grab the next callback from the task queue and add it to the call stack, which will essentially run that callback right away. 
   
 * Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
