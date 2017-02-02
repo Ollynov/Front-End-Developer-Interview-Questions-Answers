@@ -124,6 +124,25 @@ This file contains a number of front-end interview questions that can be used wh
   * If so, what libraries have you used?
 * Explain "hoisting".
 * Describe event bubbling.
+
+Event bubbling is another term for event propagation. If a particular DOM node, let's say a '<p>' element, has a child '<button>' element, and that button has a click event listener, then the parent '<p>' element will also receive the click event when the button is clicked. The click event 'bubbles up', or propagates onto all the parent elements, all the way up to the root of the document, and finally it will even send the event onto the entire window object. It is important to remember, that any DOM node can call the stopPropagation method to stop the event from bubbling up to further parent nodes. 
+Here is an example: 
+```
+<p>A paragraph with a <button>button</button>.</p>
+<script>
+  var para = document.querySelector("p");
+  var button = document.querySelector("button");
+  para.addEventListener("mousedown", function() {
+    console.log("Handler for paragraph.");
+  });
+  button.addEventListener("mousedown", function(event) {
+    console.log("Handler for button.");
+    if (event.which == 3)
+      event.stopPropagation();
+  });
+</script>
+```
+
 * What's the difference between an "attribute" and a "property"?
 * Why is extending built-in JavaScript objects not a good idea?
 * Difference between document load event and document DOMContentLoaded event?
