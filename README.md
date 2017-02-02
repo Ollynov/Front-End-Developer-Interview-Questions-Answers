@@ -243,7 +243,6 @@ Once the IP address has been optained, the browser takes the IP and the Port num
 
 
 
-
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
 The most traditional and common form of communication between a client and a server is through a series of requests from the client and responses from the server using HTTP, which has become the standard. Websockets are revolutionary in that they allow for the server to send unsolicited information directly to the client. It is important to note that in websocket communication, the client can still communicate/send real-time messages to the server. Browsers first introduced support for websocket in 2010. The Websocket communications protocol is completely separate from HTTP, except for the initial 'handshake' that establishes the websocket connection between client and server in the first place. The handshake HTTP request must include an 'Upgrade: websocket' header. 
 
