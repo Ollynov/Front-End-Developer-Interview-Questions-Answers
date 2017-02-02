@@ -220,6 +220,8 @@ let add = (x, y = 0) => {
   };
 };
 
+This is an example of basic currying in Javascript. Note that you can now create default parameters with ES6 in a much simpler way than with ES5.
+
 *Question: What value is returned from the following statement?*
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
