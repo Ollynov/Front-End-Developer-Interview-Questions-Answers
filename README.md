@@ -164,6 +164,12 @@ However, the whole point of functional/integration tests is to save you and your
 
 
 * What tools would you use to test your code's functionality?
+
+To unit test, I usually resort to using the Google Developer Console Debugger, or simply old fashioned console logs. I would highly recommend installing a javascript console directly into sublime text, here are instructions how. http://www.wikihow.com/Create-a-Javascript-Console-in-Sublime-Text
+
+For functional/integration tests I would recommend Travis, especially if you have your code on Github since it integrates automatically. It is free for open source, and costs for private repos. It also has cool features, such as integration with Slack, so can give your team a heads up when a pull request passes tests and is safe to merge. https://github.com/travis-ci/travis-ci
+
+
 * What is the difference between a unit test and a functional/integration test?
 
 A unit test is concerned with testing if a specific encapsulated portion of code produces the desired result. This 'encapsulated portion of code' is usually a single function or algorithm. A solid unit test will also test for edge cases. 
