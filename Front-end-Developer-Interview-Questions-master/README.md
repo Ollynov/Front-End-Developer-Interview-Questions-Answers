@@ -213,6 +213,12 @@ An integer plus a string always results in a string. Even 10 + 'twenty' === '10t
 add(2, 5); // 7
 add(2)(5); // 7
 ```
+let add = (x, y = 0) => {
+  let next = x + y;
+  return (g = 0) => {
+    return g + next;
+  };
+};
 
 *Question: What value is returned from the following statement?*
 ```javascript
@@ -252,10 +258,7 @@ var foo = {n: 1};
 var bar = foo;
 foo.x = foo = {n: 2};
 ```
-foo.x is undefined. The code on the last line moves from right to left, so first foo is reassigned to object {n: 2}, then foo.x is assigned foo. Yet it comes out as undefined. Interestingly, if we replace foo with another variable, such as bar:
-foo.x = bar = {n: 2}
-then foo === {n: 1, x: {n: 2}} which is more consistent with what we would expect it to be. 
-
+foo.x is undefined. 
 
 *Question: What does the following code print?*
 ```javascript
