@@ -128,11 +128,14 @@ This file contains a number of front-end interview questions that can be used wh
 Event bubbling is another term for event propagation. If a particular DOM node, let's say a '<p>' element, has a child '<button>' element, and that button has a click event listener, then the parent '<p>' element will also receive the click event when the button is clicked. The click event 'bubbles up', or propagates onto all the parent elements, all the way up to the root of the document, and finally it will even send the event onto the entire window object. It is important to remember, that any DOM node can call the stopPropagation method to stop the event from bubbling up to further parent nodes. 
 Here is an example: 
 ```
-<p>A paragraph with a <button>button</button>.</p>
+<p>
+  Demo paragraph
+  <button>button</button>
+</p>
 <script>
-  var para = document.querySelector("p");
+  var p = document.querySelector("p");
   var button = document.querySelector("button");
-  para.addEventListener("mousedown", function() {
+  p.addEventListener("mousedown", function() {
     console.log("Handler for paragraph.");
   });
   button.addEventListener("mousedown", function(event) {
@@ -142,6 +145,15 @@ Here is an example:
   });
 </script>
 ```
+Example taken from Eloquent Javascript (excellent book by the way)
+
+The parameter 'event' that we added to the button event listener is an object that represents the mousedown event. It has a 'which' property that usually represents more detail about the particular event. For a mousedown event, the which property can be a 1 to represent the left button, a 2 for the middle button, and a 3 if it was a right mouse button click. In the example above, if the button receives a left mouse button click then the following will log in your console: 
+```
+Handler for button.
+Handler for paragraph.
+```
+If the button is clicked with the right button, then only "Handler for button" will log, because we have stoped any further bubbling up. 
+
 
 * What's the difference between an "attribute" and a "property"?
 * Why is extending built-in JavaScript objects not a good idea?
