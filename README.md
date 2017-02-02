@@ -123,6 +123,8 @@ This file contains a number of front-end interview questions that can be used wh
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
 * Explain "hoisting".
+
+In javascript, every time that we create a new function or object, all variable declarations and named functions are hoisted to the top. 
 * Describe event bubbling.
 
 Event bubbling is another term for event propagation. If a particular DOM node, let's say a p element, has a child button element, and that button has a click event listener, then the parent p element will also receive the click event when the button is clicked. The click event 'bubbles up', or propagates onto all the parent elements, all the way up to the root of the document, and finally it will even send the event onto the entire window object. It is important to remember, that any DOM node can call the stopPropagation method to stop the event from bubbling up to further parent nodes. 
@@ -147,7 +149,7 @@ Here is an example:
 ```
 Example taken from Eloquent Javascript (excellent book by the way)
 
-The parameter 'event' that we added to the button event listener is an object that represents the mousedown event. It has a 'which' property that usually represents more detail about the particular event. For a mousedown event, the which property can be a 1 to represent the left button, a 2 for the middle button, and a 3 if it was a right mouse button click. In the example above, if the button receives a left mouse button click then the following will log in your console: 
+The 'event' argument that we added to the button event listener is an object that represents the mousedown event. It has a 'which' property that usually represents more detail about the particular event. For a mousedown event, the which property can be a 1 to represent the left button, a 2 for the middle button, and a 3 if it was a right mouse button click. In the example above, if the button receives a left mouse button click then the following will log in your console: 
 ```
 Handler for button.
 Handler for paragraph.
