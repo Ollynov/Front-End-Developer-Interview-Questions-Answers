@@ -238,8 +238,9 @@ As soon as you hit enter, whatever you had in the url bar is parsed- there is a 
 
 The next step is DNS lookup. A domain name is actually the more 'human friendly' way (www.github.com) to mask an ip address that is in decimal format, such as 192.30.253.113. First the browser checks the cache, and then checks a local "hosts" file whose location on the computer varies by computer and operating system. Only if the domain cannot be "resolved" in this way, will the browser make a request to a DNS server. This lookup should be very fast, as DNS servers essentially have one purpose, and are optimized for this quick retrieval (similar in structure to a hashing function). 
 
-Once the IP address has been optained, the browser takes the IP and the Port number (the HTTP protocol defaults to port 80, and HTTPS to port 443), and requests a TCP socket stream. 
+Once the IP address has been optained, the browser takes the IP and the Port number (the HTTP protocol defaults to port 80, and HTTPS to port 443), and requests a TCP socket stream. In order for this TCP socket stream (connection) to happen, one computer must be waiting, or listening, for other computers to start talking to it. In order for this computer to be able to listen to multiple computers, and to open up multiple connections, it has different ports. Protocols also have defaults (which makes it easier for everyone), sending an email requires the SMTP protocol, and the expectation is that port 25 is used. Once the correct port number has been selected, a connection is established, and the listening computer is the server and the connecting computer is the client. 
 
+TCP stands for Transmission Control Protocol, and it is a protocol that all internet connected devices can follow, in fact most of the communication on the internet is built on top of it. When there is communication via the internet, it is important that the individual bits of data that flow from one computer to another arrive to the correct destination in the correct order, and TCP is what ensures this. 
 
 
 
