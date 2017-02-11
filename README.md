@@ -317,7 +317,20 @@ The DNT Header was first implemented by Mozilla Firefox in 2010, and requests th
  
  * Cache-Control
  
-Cache-Control 
+The Cache-Control header gives the specification for caching. A client request can have the following cache-control headers:
+Cache-Control: max-age=<seconds>
+Cache-Control: max-stale[=<seconds>]
+Cache-Control: min-fresh=<seconds>
+Cache-control: no-cache 
+Cache-control: no-store
+Cache-control: no-transform
+Cache-control: only-if-cached
+
+The first 3 all refer to cache expirations. Cache-Control: max-age=10000 indicates that the cached item will be considered "fresh" (not expired) for 10K seconds from when the item is cached. The Cache-Control: max-stale[10000] indicates that the client is willing to accept a cached item that is past its expiration time by 10K seconds; the cached item may be stale, but the client is still willing to accept. Cache-Control: min-fresh=2000 indicates that the client is willing to accept a cached item that will still remain fresh for a minimum of 2000 seconds. 
+
+The Cache-control: no-store specifically requests that the cache should not store anything. 
+The Cache-control: only-if-cached header is included when the client does not want anything new from the server, only a cached response.
+
  * Transfer-Encoding
  * ETag
  * X-Frame-Options
