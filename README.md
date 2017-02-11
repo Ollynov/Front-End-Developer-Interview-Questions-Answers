@@ -195,7 +195,7 @@ console.log("We are pulling from the database");
 We are pulling from the database
 found all People from myTable
 ```
-What you CAN do with javascript is run async functions that use some sort of API provided by the runtime environment. For example, the browser provides an HTML Timing API which allows you to run setTimeout (first places it in a task queue before the JS event loop pushes it into the call stack). Similaryly, the Node.js environment allows you to schedule async tasks. 
+What you CAN do with javascript is run async functions that use some sort of API provided by the runtime environment. For example, the browser provides an HTML Timing API which allows you to run setTimeout (first places it in a task queue before the JS event loop pushes it into the call stack). Similaryly, the Node.js environment allows you to schedule async tasks. The Javascript built in Promises that were introduced with ES6 are used to merely _manage_ the async operations are are already built-in to the browser, and this management of the async operations can be done with a single thread. 
 
 
 * What is event loop? (answer joined with next answer below)
