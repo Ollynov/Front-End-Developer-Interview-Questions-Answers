@@ -275,7 +275,6 @@ The biggest reason is for performance. Traditionally, a browser has only been ab
 A secondary benefit would be not being overly reliant on a single source. If all of your assets come from the exact same domain, then if that domain is down, or being slow, then every single resource on your page will be laggy or fail. 
 
 
-
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 
 Even before you hit 'Enter' on your keyboard, there is a lot of code being run behind the scene. First the browser is looking to make your life easier by pre-populating the url input for you, based on bookmarks, history, and favorites. 
@@ -298,7 +297,7 @@ HTML5 SSE (Server-sent events), are a similar form of communication, in the sens
 Long-Polling is similar to the standard form of HTTP communication between client and server, but in the case that it receives a request from the client and has no response data available, it will not send back an empty response, but rather, hold onto that request until some data is available. As soon as the client receives a response, it will send out another request to the server, so the server will always have a pending request to respond to. 
 
 * Explain the following request and response headers:
-  * Diff. between Expires, Date, Age and If-Modified-...
+ * Diff. between Expires, Date, Age and If-Modified-...
   
 Expires and Cache-Control: max-age= are both headers that dictate when a cached item will expire. However, the Expires merely gives the date and time after which the response is considered 'stale.' However, the original resource that was sent will still exhist and will not be changed after the expiration date. The Cache-Control: max-age header indicates the max age that the client is willing to accept of an incoming response (the only exception is if there is _also_ a max-stale header present). 
 
@@ -313,7 +312,12 @@ Here is the proper formatting for each header:
 - If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT
 
  * Do Not Track
+ 
+The DNT Header was first implemented by Mozilla Firefox in 2010, and requests that a web-app disables its tracking. The DNT header can accept one of three values: a 1 is when a user 'opts out' and does not want to be tracked, a 0 is when a user consents to being tracked, or null when there has been no value set because the user has not set a preference. The default is no header sent (same as null value). There was controversy at one point when IE 10 set the default value of 1 for users, when the Digital Advertising Alliance claimed that such a decision must be made by the user. 
+ 
  * Cache-Control
+ 
+Cache-Control 
  * Transfer-Encoding
  * ETag
  * X-Frame-Options
