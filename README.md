@@ -114,6 +114,9 @@ This file contains a number of front-end interview questions that can be used wh
 * What's the difference between host objects and native objects?
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 * What's the difference between `.call` and `.apply`?
+
+Both are used to invoke a function with a certain context. The "context" that you need to provide is a value for this, and the arguments. Both methods are very similar, the only difference is that .apply accepts an array of arguments as it's second parameter, while .call accepts a list of arguments after the first parameter (this). A way to remember is 'A' for array (.apply). 
+
 * Explain `Function.prototype.bind`.
 * When would you use `document.write()`?
 * What's the difference between feature detection, feature inference, and using the UA string?
