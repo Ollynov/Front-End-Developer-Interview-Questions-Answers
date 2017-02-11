@@ -182,8 +182,24 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
   * What are the pros and cons of immutability?
   * How can you achieve immutability in your own code?
 * Explain the difference between synchronous and asynchronous functions.
-* What is event loop?
-  * What is the difference between call stack and task queue?
+
+A synchronous function is simple - it runs, and the runtime environment will only continue to the rest of the code once it has returned a value from the current synchronous function. In other words, it is _blocking_, it only runs the rest of your code once the current synchronous task has completed. It is crucial to understand that Javascript itself is single threaded and synchronous. It has no inherent asynchronous functions that it may perform, with the exception of the primitive Promises that have come with ES6. (if you are confused, keep reading below). 
+
+On the other hand, an asynchronous function is non-blocking, it starts to run the function, and then continues to perform other operations while continuing to run the original async function. It is much smarter to use aysnc functions on operations that may be intensive (such as database operations). Here is a simple example:
+```
+database.query("SELECT People FROM myTable", function(result) {
+    console.log("found all People from myTable");
+});
+console.log("We are pulling from the database");
+=> 
+We are pulling from the database
+found all People from myTable
+```
+What you CAN do with javascript is run async functions that use some sort of API provided by the runtime environment. For example, the browser provides an HTML Timing API which allows you to run setTimeout (first places it in a task queue before the JS event loop pushes it into the call stack). Similaryly, the Node.js environment allows you to schedule async tasks. 
+
+
+* What is event loop? (answer joined with next answer below)
+ * What is the difference between call stack and task queue?
   
 Javascript is a single threaded programming language, meaning that the javascript runtime only has one single call stack. This also implies that the javascript runtime can only run one unit of code at a time. It can only do one thing at a time. Everytime your code hits an invoked function, that function is added to the stack. "Blowing your call stack" is when you find yourself in an infinite loop of additions to the stack (function invocations). For example: 
 ```
@@ -349,8 +365,9 @@ Cache-control: s-maxage=<seconds>
 The Cache-control: must-revalidate indicates that each cached item may only be used if it has not expired, and they must be validated. 
 
 Also, to turn off caching you can send the following header: 
+```
 Cache-Control: no-cache, no-store, must-revalidate
-
+```
 
  * Transfer-Encoding
  * ETag
